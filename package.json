@@ -1,0 +1,54 @@
+{
+  "name": "typed-queue",
+  "version": "0.1.0",
+  "description": "A thread safe queue for basic data types designed for multithreaded browser environments",
+  "main": "lib/TypedQueue.js",
+  "types": "lib/TypedQueue.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "docs:build": "npm run build && typedoc --packages . --theme minimal --includeVersion",
+    "docs:publish": "git add -f docs && git stash && git checkout doc && git restore -s stash@{0} -- docs && git add docs && git commit docs -m 'Updated documentation'; git push && git checkout develop && git stash pop && git restore --staged docs",
+    "lint": "eslint ./src/**",
+    "lint:fix": "eslint ./src/** --fix",
+    "prepare": "npm run build",
+    "serve": "web-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mogoe1/typed-queue.git"
+  },
+  "author": "mogoe1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mogoe1/typed-queue/issues"
+  },
+  "homepage": "https://github.com/mogoe1/typed-queue#readme",
+  "keywords": [
+    "Browser",
+    "Thread",
+    "WebWorker",
+    "Synchronization",
+    "Atomics",
+    "SharedArrayBuffer",
+    "TypedArray",
+    "Queue"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "@web/dev-server": "^0.1.18",
+    "eslint": "^7.31.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "typedoc": "^0.21.4",
+    "typescript": "^4.3.5"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@mogoe1/reentrant-lock": "github:mogoe1/reentrant-lock"
+  }
+}

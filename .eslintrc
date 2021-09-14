@@ -1,0 +1,41 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "ignorePatterns": ["example/**", "/*.*"],
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "extends": [
+        "standard",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "rules": {
+        "prefer-template": "error",
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "space-before-function-paren": [
+            "error",
+            "never"
+        ],
+        "no-trailing-spaces": [
+            "error",
+            {
+                "ignoreComments": true
+            }
+        ],
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "no-useless-return": "warn"
+    }
+}
